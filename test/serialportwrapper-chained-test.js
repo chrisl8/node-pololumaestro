@@ -1,5 +1,5 @@
 var ChainedModeSerialPortWrapper = require("../lib/serialportwrapper-chained"),
-	SerialPort = require("serialport").SerialPort,
+	SerialPort = require("serialport"),
 	LOG = require("winston"),
 	JsMockito = require("jsmockito").JsMockito,
 	JsHamcrest = require('jshamcrest').JsHamcrest;

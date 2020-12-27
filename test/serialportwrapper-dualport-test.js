@@ -1,5 +1,5 @@
 var DualModeSerialPortWrapper = require("../lib/serialportwrapper-dualport"),
-	SerialPort = require("serialport").SerialPort,
+	SerialPort = require("serialport"),
 	LOG = require("winston"),
 	JsMockito = require("jsmockito").JsMockito,
 	JsHamcrest = require('jshamcrest').JsHamcrest;
