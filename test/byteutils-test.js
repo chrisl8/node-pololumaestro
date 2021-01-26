@@ -1,5 +1,4 @@
 var ByteUtils = require("../lib/byteutils"),
-	LOG = require("winston"),
 	JsMockito = require("jsmockito").JsMockito,
 	JsHamcrest = require('jshamcrest').JsHamcrest;
 

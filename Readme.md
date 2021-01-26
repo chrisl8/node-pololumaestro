@@ -11,8 +11,6 @@ See the [API documentation](http://omcaree.github.io/node-pololumaestro/) for mo
 
 This module requires [node-serialport](https://github.com/voodootikigod/node-serialport) in order to communicate with the Maestro, this should be installed automatically.
 
-It also uses [Winston](https://github.com/flatiron/winston) for logging.
-
 ## Installation
 
 Install this module with

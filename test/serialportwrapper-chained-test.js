@@ -1,6 +1,5 @@
 var ChainedModeSerialPortWrapper = require("../lib/serialportwrapper-chained"),
 	SerialPort = require("serialport"),
-	LOG = require("winston"),
 	JsMockito = require("jsmockito").JsMockito,
 	JsHamcrest = require('jshamcrest').JsHamcrest;
 
@@ -59,7 +58,7 @@ module.exports = {
 				output += str + " (0x" + byte.toString(16).toUpperCase() + "), ";
 			});
 
-			LOG.info("TEST: Serial port recieved " + output.substring(0, output.length - 2));
+			console.info("TEST: Serial port recieved " + output.substring(0, output.length - 2));
 
 			// invoke callback
 			if(callback) {
@@ -70,9 +69,9 @@ module.exports = {
 				if(arr_equals(bytes, traffic.input)) {
 					invocation.output = traffic.output;
 
-					LOG.info("TEST: traffic.input " + traffic.input);
-					LOG.info("TEST: traffic.output " + traffic.output);
-					LOG.info("TEST: emitting data " + traffic.output + " to " + mockSerialPort.listeners("data").length + " listeners");
+					console.info("TEST: traffic.input " + traffic.input);
+					console.info("TEST: traffic.output " + traffic.output);
+					console.info("TEST: emitting data " + traffic.output + " to " + mockSerialPort.listeners("data").length + " listeners");
 					mockSerialPort.emit("data", traffic.output);
 				}
 			});

@@ -18,7 +18,6 @@ var stubs = {
 
 var SerialPortWrapper = require("../lib/serialportwrapper"),
 	SerialModes = require("../lib/serialmodes"),
-	LOG = require("winston"),
 	JsMockito = require("jsmockito").JsMockito,
 	JsHamcrest = require("jshamcrest").JsHamcrest,
 	proxyquire = require("proxyquire");
@@ -80,7 +79,7 @@ module.exports = {
 				output += str + " (0x" + byte.toString(16).toUpperCase() + "), ";
 			});
 
-			LOG.info("TEST: Serial port recieved " + output.substring(0, output.length - 2));
+			console.info("TEST: Serial port recieved " + output.substring(0, output.length - 2));
 
 			// invoke callback
 			if(callback) {
@@ -98,8 +97,8 @@ module.exports = {
 				}
 
 				if(arr_equals(bytes, traffic.input)) {
-					LOG.info("TEST: traffic.input " + traffic.input);
-					LOG.info("TEST: traffic.output " + traffic.output);
+					console.info("TEST: traffic.input " + traffic.input);
+					console.info("TEST: traffic.output " + traffic.output);
 					onData(traffic.output);
 				}
 			});
@@ -193,7 +192,7 @@ module.exports = {
 		var position;
 			
 		this._maestro.getPosition(5, function(data) {
-			LOG.info("getPosition callback saw: " + data);
+			console.info("getPosition callback saw: " + data);
 			position = data;
 		});
 

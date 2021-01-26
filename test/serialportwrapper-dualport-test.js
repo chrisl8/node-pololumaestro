@@ -1,6 +1,5 @@
 var DualModeSerialPortWrapper = require("../lib/serialportwrapper-dualport"),
 	SerialPort = require("serialport"),
-	LOG = require("winston"),
 	JsMockito = require("jsmockito").JsMockito,
 	JsHamcrest = require('jshamcrest').JsHamcrest;
 
@@ -61,7 +60,7 @@ module.exports = {
 				output += str + " (0x" + byte.toString(16).toUpperCase() + "), ";
 			});
 
-			LOG.info("TEST: Serial port recieved " + output.substring(0, output.length - 2));
+			console.info("TEST: Serial port recieved " + output.substring(0, output.length - 2));
 
 			// invoke callback
 			if(callback) {
@@ -87,10 +86,10 @@ module.exports = {
 						data: output
 					};
 
-					LOG.info("TEST: traffic.input " + invocation.arguments[0]);
-					LOG.info("TEST: traffic.output.port " + invocation.output.port);
-					LOG.info("TEST: traffic.output.data " + invocation.output.data);
-					LOG.info("TEST: emitting data to " + target.listeners("data").length + " listeners via " + port + " port");
+					console.info("TEST: traffic.input " + invocation.arguments[0]);
+					console.info("TEST: traffic.output.port " + invocation.output.port);
+					console.info("TEST: traffic.output.data " + invocation.output.data);
+					console.info("TEST: emitting data to " + target.listeners("data").length + " listeners via " + port + " port");
 					target.emit("data", invocation.output.data);
 				}
 			}.bind(this));
