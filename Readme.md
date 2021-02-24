@@ -124,7 +124,15 @@ PololuMaestro.find(PololuMaestro.SERIAL_MODES.USB_DUAL_PORT, function(error, mae
 });
 ```
 
+You may add a third parameter to the instance declaration to limit the messages sent to the console:  
+`var maestro = new PololuMaestro("COM17", 115200, false);`  
+This sets "debug" messages to not display, cleaning up the console output quite a bit.
+
 ## Version history
+
+ * Node Serialport was updated to the latest version.
+ * Winston was removed because the existing version had security vulnerabilities, and the new version was not a drop in replacement.
+ * A simple `debug` parameter was added to quiet debug logging to the console.
 
 ### v3.0.0
  * Breaking change - the callback for PololuMaestro#find now takes arguments `error, maestro` to be more inline with node conventions
